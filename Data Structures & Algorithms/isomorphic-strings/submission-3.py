@@ -1,0 +1,13 @@
+class Solution:
+    def isIsomorphic(self, s: str, t: str) -> bool:
+        def helper(s,t):
+            hm1={}
+            hm2={}
+            for i in range(len(s)):
+                if (s[i] in hm1 and hm1[s[i]]!=t[i]) or (t[i] in hm2 and hm2[t[i]]!=s[i]) :
+                    return False
+                hm1[s[i]]=t[i]
+                hm2[t[i]]=s[i]
+            return True
+        return helper(s,t)
+        
